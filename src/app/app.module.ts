@@ -8,9 +8,10 @@ import { HeaderComponent } from './header/header.component';
 import { CursosComponent } from './cursos/cursos.component';
 
 const routes: Routes = [
-  {path: '', component: InicioComponent },
-  {path: 'inicio', component: InicioComponent },
-  {path: '**', component: InicioComponent }
+  { path: '', component: InicioComponent },
+  { path: 'inicio', component: InicioComponent },
+  { path: 'cursos', component: CursosComponent },
+  { path: '**', component: InicioComponent }
 ];
 
 @NgModule({
