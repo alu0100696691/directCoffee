@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-nuevo-curso',
@@ -7,9 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NuevoCursoComponent implements OnInit {
 
-  constructor() { }
+  cursoForm: FormGroup;
+  curso: any;
+
+  constructor(private pf: FormBuilder) { }
 
   ngOnInit() {
+    this.cursoForm = this.pf.group({
+      nombre: '',
+      descripcion:''
+    });
+  }
+
+  guardarCurso() {
+    this.curso = this.setearCurso();
+  }
+
+  setearCurso() {
+    const salvarCurso = {
+      nombre: this.cursoForm.get('nombre').value,
+      descripcion: this.cursoForm.get('descripcion').value
+    }
+    return salvarCurso;
   }
 
 }

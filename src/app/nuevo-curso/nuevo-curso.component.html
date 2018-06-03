@@ -2,16 +2,23 @@
   <div class="row">
     <div class="col col-md"></div>
     <div class="col-10 col-md-8">
-      <form>
+      <form [formGroup]="cursoForm"  (ngSubmit)="guardarCurso()" >
         <div class="form-group">
           <label for="nombreCurso">Nombre</label>
-          <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+          <input type="text" class="form-control" id="nombre" placeholder="Nombre" formControlName="nombre">
         </div>
         <label for="descripcion">Descripción</label>
-        <textarea class="form-control" id="descripcion" rows="3"></textarea>
+        <textarea class="form-control" id="descripcion" rows="3" formControlName="descripcion"></textarea>
         <hr>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
       </form>
+      <hr>
+      <pre>
+        Valor del curso: {{ cursoForm.value | json }} 
+      </pre>
+      <pre>
+        Valordel objeto: {{ curso | json }}
+      </pre>
     </div>
     <div class="col col-md"></div>
   </div>
