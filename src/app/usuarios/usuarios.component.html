@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col col-md"></div>
+    <div class="col-10 col-md-8">
+      <form [formGroup]="usuarioForm" (ngSubmit)="guardarUsuario()">
+        <div class="form-group">
+          <label for="das">* DAS</label>
+          <input type="text" class="form-control" id="das" placeholder="Número DAS del usuario" formControlName="das">
+        </div>
+        <p class="alert alert-danger" *ngIf="!usuarioForm.controls.das.valid && usuarioForm.controls.das.touched">
+          El código DAS es obligatorio.
+        </p>
+        <div class="form-group">
+          <label for="nombre">* Nombre</label>
+          <input type="text" class="form-control" id="nombre" placeholder="Nombre del usuario" formControlName="nombre">
+        </div>
+        <p class="alert alert-danger" *ngIf="!usuarioForm.controls.nombre.valid && usuarioForm.controls.nombre.touched">
+          El nombre del usuario es obligatorio, mínimo ocho caracteres.
+        </p>
+        <div class="form-group">
+          <label for="apellidos">* Apellidos</label>
+          <input type="text" class="form-control" id="apellidos" placeholder="Apellidos" formControlName="apellidos">
+        </div>
+        <p class="alert alert-danger" *ngIf="!usuarioForm.controls.apellidos.valid && usuarioForm.controls.apellidos.touched">
+          Los apellidos del usuario son obligatorios, mínimo ocho caracteres.
+        </p>
+        <hr>
+        <button type="submit" class="btn btn-primary" [disabled]="!usuarioForm.valid">Guardar usuario</button>
+        <hr>
+        <p class="alert alert-danger" *ngIf="!usuarioForm.valid">
+          Por favor complete todos los campos obligatorios.
+        </p>
+      </form>
+    </div>
+    <div class="col col-md"></div>
+  </div>
+</div>

@@ -9,12 +9,14 @@ import { InicioComponent } from './inicio/inicio.component';
 import { HeaderComponent } from './header/header.component';
 import { CursosComponent } from './cursos/cursos.component';
 import { NuevoCursoComponent } from './nuevo-curso/nuevo-curso.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
 
 const routes: Routes = [
   { path: '', component: InicioComponent },
   { path: 'inicio', component: InicioComponent },
   { path: 'cursos', component: CursosComponent },
   { path: 'nuevoCurso', component: NuevoCursoComponent },
+  { path: 'usuarios', component: UsuariosComponent },
   { path: '**', component: InicioComponent }
 ];
 
@@ -24,7 +26,8 @@ const routes: Routes = [
     InicioComponent,
     HeaderComponent,
     CursosComponent,
-    NuevoCursoComponent
+    NuevoCursoComponent,
+    UsuariosComponent
   ],
   imports: [
     BrowserModule,
