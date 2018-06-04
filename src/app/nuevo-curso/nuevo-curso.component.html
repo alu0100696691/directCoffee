@@ -7,10 +7,19 @@
           <label for="nombreCurso">Nombre</label>
           <input type="text" class="form-control" id="nombre" placeholder="Nombre" formControlName="nombre">
         </div>
+        <p class="alert alert-danger" *ngIf="!cursoForm.controls.nombre.valid && cursoForm.controls.nombre.touched">
+          El nombre del curso es obligatorio, mínimo ocho caracteres.
+        </p>
         <label for="descripcion">Descripción</label>
         <textarea class="form-control" id="descripcion" rows="3" formControlName="descripcion"></textarea>
         <hr>
-        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="submit" 
+          class="btn btn-primary"
+          [disabled]="!cursoForm.valid">Guardar curso</button>
+          <hr>
+          <p class="alert alert-danger" *ngIf="!cursoForm.valid">
+            Por favor complete todos los campos obligatorios.
+          </p>
       </form>
       <hr>
       <pre>

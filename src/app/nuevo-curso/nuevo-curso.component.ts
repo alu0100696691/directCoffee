@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-nuevo-curso',
@@ -15,7 +15,7 @@ export class NuevoCursoComponent implements OnInit {
 
   ngOnInit() {
     this.cursoForm = this.pf.group({
-      nombre: '',
+      nombre: ['', [Validators.required, Validators.minLength(8)] ],
       descripcion:''
     });
   }
