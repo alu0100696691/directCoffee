@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { CursosService } from '../servicios/cursos.service';
 
 @Component({
   selector: 'app-nuevo-curso',
@@ -11,7 +12,8 @@ export class NuevoCursoComponent implements OnInit {
   cursoForm: FormGroup;
   curso: any;
 
-  constructor(private pf: FormBuilder) { }
+  constructor(private pf: FormBuilder, 
+              private cursoService: CursosService) { }
 
   ngOnInit() {
     this.cursoForm = this.pf.group({
@@ -26,6 +28,10 @@ export class NuevoCursoComponent implements OnInit {
 
   guardarCurso() {
     this.curso = this.setearCurso();
+    this.cursoService.postCurso(this.curso)
+      .subscribe(newcurso => {
+        
+      })
   }
 
   setearCurso() {
