@@ -32,6 +32,7 @@ export class NuevoCursoComponent implements OnInit {
       .subscribe(newcurso => {
         
       })
+      this.cursoForm.reset;
   }
 
   setearCurso() {
