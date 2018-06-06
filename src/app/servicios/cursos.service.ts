@@ -24,5 +24,12 @@ postCurso(curso:any) {
     })
 }
 
+getCurso() {
+  return this.http.get( this.presURL )
+    .map(
+      res => res.json()
+    )
+}
+
 }
 
