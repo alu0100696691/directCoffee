@@ -1,0 +1,5 @@
+error map:
+npm install rxjs@6 rxjs-compat@6 --save
+
+paquetes firebase:
+npm install firebase angularfire2 --save
