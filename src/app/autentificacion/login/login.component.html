@@ -2,27 +2,33 @@
   <div class="row">
     <div class="col col-md"></div>
     <div class="col-10 col-md-8">
-      <form [formGroup]="loginForm" (ngSubmit)="loginUsuario()">        
+      <form [formGroup]="loginForm" (ngSubmit)="loginUsuario()"> 
+        <h4>Introduzca sus datos</h4>       
         <div class="form-group">
           <label for="exampleInputEmail1">* Dirección de correo</label>
           <input type="email" class="form-control" id="exampleInputEmail1" 
                   aria-describedby="emailHelp" placeholder="Email" formControlName="email">
           <small id="emailHelp" class="form-text text-muted">Nunca compartiremos su correo electrónico con nadie más.</small>
         </div>
+        <p class="alert alert-danger" *ngIf="!loginForm.controls.email.valid && loginForm.controls.email.touched">
+            Introduzca un email correcto.
+        </p>
         <div class="form-group">
           <label for="exampleInputPassword1">* Password</label>
           <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" formControlName="password">
-        </div>        
+        </div>
+        <p class="alert alert-danger" *ngIf="!loginForm.controls.password.valid && loginForm.controls.password.touched">
+            Introduzca un password con letras y números. Minimo ocho caracteres.
+        </p>        
         <hr>
         <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Login usuario</button>
         <hr>
         <p class="alert alert-danger" *ngIf="!loginForm.valid">
           Por favor complete todos los campos obligatorios.
-        </p>
-        
-        <a class="badge badge-primary" routerLink="/registro">Crear una cuenta.</a>
-        
+        </p>        
+        <a routerLink="/registro">Crear una cuenta.</a>        
       </form>
+      <p class="alert alert-danger" *ngIf="mensaje">El usuario o contraseña no es correcto</p>
     </div>
     <div class="col col-md"></div>
   </div>

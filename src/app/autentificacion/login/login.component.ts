@@ -13,6 +13,9 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   login: any;
 
+  mensaje = false;
+
+
   constructor(private formBuilder: FormBuilder,
               private autentificacionService: AutentificacionService,
               private router: Router,
@@ -29,7 +32,12 @@ export class LoginComponent implements OnInit {
 
   loginUsuario() {
     this.login = this.setearLogin();
-    this.autentificacionService.inicioSesion(this.login);    
+    this.autentificacionService.inicioSesion(this.login); 
+    setTimeout(()=> {
+      if(this.isAuth() === false) {
+        this.mensaje=true;
+      }
+    }, 2000);   
   }
 
   setearLogin() {
@@ -38,6 +46,10 @@ export class LoginComponent implements OnInit {
       password: this.loginForm.get('password').value,     
     }
     return salvarLogin;
+  }
+
+  isAuth() {
+    return this.autentificacionService.isAuthenticated();
   }
 
 }
