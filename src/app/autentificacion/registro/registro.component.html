@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col col-md"></div>
+    <div class="col-10 col-md-8">
+      <form [formGroup]="registroForm" (ngSubmit)="guardarRegistro()">
+        <div class="form-group">
+          <label for="das">* DAS</label>
+          <input type="text" class="form-control" id="das" placeholder="Número DAS del usuario" formControlName="das">
+        </div>
+        <p class="alert alert-danger" *ngIf="!registroForm.controls.das.valid && registroForm.controls.das.touched">
+          El código DAS es obligatorio.
+        </p>
+        <div class="form-group">
+          <label for="nombre">* Nombre</label>
+          <input type="text" class="form-control" id="nombre" placeholder="Nombre del usuario" formControlName="nombre">
+        </div>
+        <p class="alert alert-danger" *ngIf="!registroForm.controls.nombre.valid && registroForm.controls.nombre.touched">
+          El nombre del usuario es obligatorio, mínimo ocho caracteres.
+        </p>
+        <div class="form-group">
+          <label for="apellidos">* Apellidos</label>
+          <input type="text" class="form-control" id="apellidos" placeholder="Apellidos" formControlName="apellidos">
+        </div>
+        <p class="alert alert-danger" *ngIf="!registroForm.controls.apellidos.valid && registroForm.controls.apellidos.touched">
+          Los apellidos del usuario son obligatorios, mínimo ocho caracteres.
+        </p>
+        <div class="form-group">
+          <label for="exampleInputEmail1">* Dirección de correo</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" 
+                  aria-describedby="emailHelp" placeholder="Email" formControlName="email">
+          <small id="emailHelp" class="form-text text-muted">Nunca compartiremos su correo electrónico con nadie más.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">* Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" formControlName="password">
+        </div>        
+        <hr>
+        <button type="submit" class="btn btn-primary" [disabled]="!registroForm.valid">Guardar usuario</button>
+        <hr>
+        <p class="alert alert-danger" *ngIf="!registroForm.valid">
+          Por favor complete todos los campos obligatorios.
+        </p>
+      </form>
+    </div>
+    <div class="col col-md"></div>
+  </div>
+</div>

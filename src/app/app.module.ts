@@ -11,8 +11,11 @@ import { HeaderComponent } from './header/header.component';
 import { CursosComponent } from './cursos/cursos.component';
 import { NuevoCursoComponent } from './nuevo-curso/nuevo-curso.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
+import { RegistroComponent } from './autentificacion/registro/registro.component';
 
 import { CursosService } from './servicios/cursos.service';
+import { AutentificacionService } from './servicios/autentificacion.service';
+
 
 const routes: Routes = [
   { path: '', component: InicioComponent },
@@ -20,6 +23,7 @@ const routes: Routes = [
   { path: 'cursos', component: CursosComponent },
   { path: 'nuevoCurso', component: NuevoCursoComponent },
   { path: 'usuarios', component: UsuariosComponent },
+  { path: 'registro', component: RegistroComponent },
   { path: '**', component: InicioComponent }
 ];
 
@@ -30,7 +34,8 @@ const routes: Routes = [
     HeaderComponent,
     CursosComponent,
     NuevoCursoComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +44,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     HttpModule
   ],
-  providers: [ CursosService ],  
+  providers: [ CursosService,AutentificacionService ],  
   bootstrap: [AppComponent]
 })
 export class AppModule { }
