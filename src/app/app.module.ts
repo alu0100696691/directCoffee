@@ -12,18 +12,19 @@ import { CursosComponent } from './cursos/cursos.component';
 import { NuevoCursoComponent } from './nuevo-curso/nuevo-curso.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { RegistroComponent } from './autentificacion/registro/registro.component';
+import { LoginComponent } from './autentificacion/login/login.component';
 
 import { CursosService } from './servicios/cursos.service';
 import { AutentificacionService } from './servicios/autentificacion.service';
-import { LoginComponent } from './autentificacion/login/login.component';
+import { GuardService } from './servicios/guard.service';
 
 
 const routes: Routes = [
   { path: '', component: InicioComponent },
   { path: 'inicio', component: InicioComponent },
-  { path: 'cursos', component: CursosComponent },
-  { path: 'nuevoCurso', component: NuevoCursoComponent },
-  { path: 'usuarios', component: UsuariosComponent },
+  { path: 'cursos', component: CursosComponent, canActivate: [GuardService] },
+  { path: 'nuevoCurso', component: NuevoCursoComponent, canActivate: [GuardService] },
+  { path: 'usuarios', component: UsuariosComponent, canActivate: [GuardService] },
   { path: 'registro', component: RegistroComponent },
   { path: 'login', component: LoginComponent },
   { path: '**', component: InicioComponent }
@@ -47,7 +48,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     HttpModule
   ],
-  providers: [ CursosService,AutentificacionService ],  
+  providers: [ CursosService,AutentificacionService,GuardService ],  
   bootstrap: [AppComponent]
 })
 export class AppModule { }
