@@ -10,20 +10,24 @@
           <a class="nav-link" routerLink="/" >Inicio <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/">Registro de tiempo</a>
+          <a class="nav-link" routerLink="/" *ngIf="isAuth()">Registro de tiempo</a>
         </li>        
         <li class="nav-item">
-          <a class="nav-link" routerLink="/cursos">Catálogo</a>
+          <a class="nav-link" routerLink="/cursos" *ngIf="isAuth()">Catálogo</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" routerLink="/">Operativa a seguir</a>
-          </li>
+         </li>
         <li class="nav-item">
-            <a class="nav-link " routerLink="/usuarios">Usuarios</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " routerLink="/registro">Registro</a>
-          </li>
+            <a class="nav-link " routerLink="/usuarios" *ngIf="isAuth()">Usuarios</a>
+         </li>
+          
+        <li class="nav-item">
+           <button class="btn btn-primary" routerLink="/login" *ngIf="!isAuth()">Login</button>
+        </li>
+        <li class="nav-item">
+           <button class="btn btn-primary" (click)="onLogout()" *ngIf="isAuth()">Logout</button>
+        </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

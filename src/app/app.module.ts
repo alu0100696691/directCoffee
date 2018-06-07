@@ -15,6 +15,7 @@ import { RegistroComponent } from './autentificacion/registro/registro.component
 
 import { CursosService } from './servicios/cursos.service';
 import { AutentificacionService } from './servicios/autentificacion.service';
+import { LoginComponent } from './autentificacion/login/login.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'nuevoCurso', component: NuevoCursoComponent },
   { path: 'usuarios', component: UsuariosComponent },
   { path: 'registro', component: RegistroComponent },
+  { path: 'login', component: LoginComponent },
   { path: '**', component: InicioComponent }
 ];
 
@@ -35,7 +37,8 @@ const routes: Routes = [
     CursosComponent,
     NuevoCursoComponent,
     UsuariosComponent,
-    RegistroComponent
+    RegistroComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
