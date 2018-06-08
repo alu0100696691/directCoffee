@@ -11,6 +11,7 @@ export class CursosComponent implements OnInit {
   cursos: any[] = [];
 
   constructor(private cursosService: CursosService) {
+    this.cursos = [];
     this.cursosService.getCursos()
       .subscribe(cursos => {
         for(const id$ in cursos) {
