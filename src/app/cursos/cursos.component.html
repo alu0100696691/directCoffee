@@ -12,7 +12,9 @@
             <th scope="col">Plataforma</th>
             <th scope="col">Contenido</th>
             <th scope="col">Horas</th>
-            <th scope="col">Comentarios</th>            
+            <th scope="col">Comentarios</th> 
+            <th>Editar</th>  
+            <th>Eliminar</th>         
           </tr>
         </thead>
         <tbody>
@@ -23,6 +25,12 @@
             <td>{{curso.contenido}}</td>
             <td>{{curso.horas}}</td>
             <td>{{curso.comentarios}}</td>
+            <td>
+                <button type="button" class="btn btn-success" routerLink="/editarCurso/{{ curso.id$ }}">Editar</button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-danger" (click)="eliminarCurso(curso.id$)">Eliminar</button>
+            </td>
           </tr>         
         </tbody>
       </table>      

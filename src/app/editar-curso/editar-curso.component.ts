@@ -4,19 +4,27 @@ import { CursosService } from '../servicios/cursos.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-nuevo-curso',
-  templateUrl: './nuevo-curso.component.html',
-  styleUrls: ['./nuevo-curso.component.css']
+  selector: 'app-editar-curso',
+  templateUrl: './editar-curso.component.html',
+  styleUrls: ['./editar-curso.component.css']
 })
-export class NuevoCursoComponent implements OnInit {
+export class EditarCursoComponent implements OnInit {
 
   cursoForm: FormGroup;
   curso: any;
+  id: string;
 
   constructor(private pf: FormBuilder, 
               private cursoService: CursosService,
               private router: Router,
-              private activatedRouter: ActivatedRoute) { }
+              private activatedRouter: ActivatedRoute) { 
+                this.activatedRouter.params
+                  .subscribe( parametros => {
+                    this.id = parametros['id'];
+                    this.cursoService.getCurso(this.id)
+                      .subscribe( curso => this.curso = curso )
+                  });
+              }
 
   ngOnInit() {
     this.cursoForm = this.pf.group({
@@ -31,12 +39,13 @@ export class NuevoCursoComponent implements OnInit {
 
   guardarCurso() {
     this.curso = this.setearCurso();
-    this.cursoService.postCurso(this.curso)
+    this.cursoService.putCurso(this.curso, this.id)
       .subscribe(newcurso => {
         
       })
       this.cursoForm.reset;
       this.router.navigate(['/cursos']);
+
   }
 
   setearCurso() {

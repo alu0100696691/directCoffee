@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row">
+      <div class="col col-md"></div>
+      <div class="col-10 col-md-8">
+        <h2>Editar curso</h2>
+        <a class="btn btn-primary float-md-right" routerLink="/cursos">Regresar al listado</a>
+        <form [formGroup]="cursoForm" (ngSubmit)="guardarCurso()">
+          <div class="form-group">
+            <label for="codigo">* Codigo actividad</label>
+            <input type="text" class="form-control" id="codigo" placeholder="Codigo de la actividad" formControlName="codigo" [(ngModel)]="curso.codigo">
+          </div>
+          <p class="alert alert-danger" *ngIf="!cursoForm.controls.codigo.valid && cursoForm.controls.codigo.touched">
+            El código de la actividad es obligatorio, máximo dos caracteres.
+          </p>
+          <div class="form-group">
+            <label for="curso">* Curso</label>
+            <input type="text" class="form-control" id="curso" placeholder="Nombre del curso" formControlName="curso" [(ngModel)]="curso.curso">
+          </div>
+          <p class="alert alert-danger" *ngIf="!cursoForm.controls.curso.valid && cursoForm.controls.curso.touched">
+            El nombre del curso es obligatorio, mínimo ocho caracteres.
+          </p>
+          <div class="form-group">
+            <label for="plataforma">Plataforma</label>
+            <input type="text" class="form-control" id="plataforma" placeholder="Plataforma" formControlName="plataforma" [(ngModel)]="curso.plataforma">
+          </div>
+          <div class="form-group">
+            <label for="contenido">Contenido</label>
+            <input type="text" class="form-control" id="contenido" placeholder="Contenido" formControlName="contenido" [(ngModel)]="curso.contenido">
+          </div>
+          <div class="form-group">
+            <label for="horas">Horas</label>
+            <input type="text" class="form-control" id="horas" placeholder="Horas" formControlName="horas" [(ngModel)]="curso.horas">
+          </div>
+          <label for="comentarios">Comentarios</label>
+          <textarea class="form-control" id="comentarios" rows="3" placeholder="Comentarios" formControlName="comentarios" [(ngModel)]="curso.comentarios"></textarea>
+          <hr>
+          <button type="submit" class="btn btn-primary" [disabled]="!cursoForm.valid">Guardar cambios</button>
+          <hr>
+          <p class="alert alert-danger" *ngIf="!cursoForm.valid">
+            Por favor complete todos los campos obligatorios.
+          </p>
+        </form>
+      </div>
+      <div class="col col-md"></div>
+    </div>
+  </div>

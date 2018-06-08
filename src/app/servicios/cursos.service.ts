@@ -8,8 +8,8 @@ import 'rxjs/add/operator/map'
 })
 export class CursosService {
 
-  curURL = 'https://directcoffee-e9c84.firebaseio.com/cursos.json';
-
+  cursURL = 'https://directcoffee-e9c84.firebaseio.com/cursos.json';
+  curURL = 'https://directcoffee-e9c84.firebaseio.com/cursos';
 
   constructor(private http: Http) { }
 
@@ -18,18 +18,44 @@ postCurso(curso:any) {
   const headers = new Headers({
     'Content-Type': 'application/json'
   });
-  return this.http.post( this.curURL, newCurso, {headers})
+  return this.http.post( this.cursURL, newCurso, {headers})
     .map( res => {
       console.log(res.json());
       return res.json();
     })
 }
 
-getCurso() {
-  return this.http.get( this.curURL )
+getCursos() {
+  return this.http.get( this.cursURL )
     .map(
       res => res.json()
     )
+}
+
+getCurso(id$: string) {
+  const url = `${this.curURL}/${id$}.json`;
+  return this.http.get(url)
+    .map( res => res.json());
+}
+
+putCurso(curso: any, id$: string) {
+  const newcur = JSON.stringify(curso);
+  const headers = new Headers({
+    'Content-Type': 'application/json'
+  });
+
+  const url = `${this.curURL}/${id$}.json`;
+  return this.http.put( url, newcur, {headers} )
+    .map ( res => {
+      console.log(res.json());
+      return res.json();
+    })
+}
+
+delCurso ( id$: string) {
+  const url = `${this.curURL}/${id$}.json`;
+  return this.http.delete( url )
+    .map ( res => res.json());
 }
 
 }

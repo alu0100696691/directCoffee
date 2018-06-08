@@ -13,6 +13,7 @@ import { NuevoCursoComponent } from './nuevo-curso/nuevo-curso.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { RegistroComponent } from './autentificacion/registro/registro.component';
 import { LoginComponent } from './autentificacion/login/login.component';
+import { EditarCursoComponent } from './editar-curso/editar-curso.component';
 
 import { CursosService } from './servicios/cursos.service';
 import { AutentificacionService } from './servicios/autentificacion.service';
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'inicio', component: InicioComponent },
   { path: 'cursos', component: CursosComponent, canActivate: [GuardService] },
   { path: 'nuevoCurso', component: NuevoCursoComponent, canActivate: [GuardService] },
+  { path: 'editarCurso/:id', component: EditarCursoComponent, canActivate: [GuardService] },
   { path: 'usuarios', component: UsuariosComponent, canActivate: [GuardService] },
   { path: 'registro', component: RegistroComponent },
   { path: 'login', component: LoginComponent },
@@ -39,7 +41,8 @@ const routes: Routes = [
     NuevoCursoComponent,
     UsuariosComponent,
     RegistroComponent,
-    LoginComponent
+    LoginComponent,
+    EditarCursoComponent
   ],
   imports: [
     BrowserModule,

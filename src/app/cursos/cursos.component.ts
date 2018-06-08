@@ -11,7 +11,7 @@ export class CursosComponent implements OnInit {
   cursos: any[] = [];
 
   constructor(private cursosService: CursosService) {
-    this.cursosService.getCurso()
+    this.cursosService.getCursos()
       .subscribe(cursos => {
         for(const id$ in cursos) {
           const p = cursos[id$];
@@ -23,6 +23,22 @@ export class CursosComponent implements OnInit {
 
   ngOnInit() {
     
+  }
+
+  eliminarCurso(id$) {
+    this.cursosService.delCurso(id$)
+      .subscribe ( res => {
+        this.cursos = [];
+        this.cursosService.getCursos()
+      .subscribe(cursos => {
+        for(const id$ in cursos) {
+          const p = cursos[id$];
+          p.id$= id$;
+          this.cursos.push(cursos[id$]);
+        }
+      })       
+      })
+
   }
 
 }
