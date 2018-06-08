@@ -8,7 +8,8 @@ import 'rxjs/add/operator/map'
 })
 export class CursosService {
 
-  presURL = 'https://directcoffee-e9c84.firebaseio.com/cursos.json';
+  curURL = 'https://directcoffee-e9c84.firebaseio.com/cursos.json';
+
 
   constructor(private http: Http) { }
 
@@ -17,7 +18,7 @@ postCurso(curso:any) {
   const headers = new Headers({
     'Content-Type': 'application/json'
   });
-  return this.http.post( this.presURL, newCurso, {headers})
+  return this.http.post( this.curURL, newCurso, {headers})
     .map( res => {
       console.log(res.json());
       return res.json();
@@ -25,7 +26,7 @@ postCurso(curso:any) {
 }
 
 getCurso() {
-  return this.http.get( this.presURL )
+  return this.http.get( this.curURL )
     .map(
       res => res.json()
     )
