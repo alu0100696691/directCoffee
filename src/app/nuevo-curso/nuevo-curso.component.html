@@ -2,6 +2,8 @@
   <div class="row">
     <div class="col col-md"></div>
     <div class="col-10 col-md-8">
+        <h2>Nuevo curso</h2>
+        <a class="btn btn-primary float-md-right" routerLink="/cursos">Regresar al listado</a>        
       <form [formGroup]="cursoForm" (ngSubmit)="guardarCurso()">
         <div class="form-group">
           <label for="codigo">* Codigo actividad</label>

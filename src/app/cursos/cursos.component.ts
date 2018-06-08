@@ -11,33 +11,33 @@ export class CursosComponent implements OnInit {
   cursos: any[] = [];
 
   constructor(private cursosService: CursosService) {
-    this.cursos = [];
     this.cursosService.getCursos()
       .subscribe(cursos => {
-        for(const id$ in cursos) {
+        this.cursos= [];
+        for (const id$ in cursos) {
           const p = cursos[id$];
-          p.id$= id$;
+          p.id$ = id$;
           this.cursos.push(cursos[id$]);
         }
       })
-   }
+  }
 
   ngOnInit() {
-    
+
   }
 
   eliminarCurso(id$) {
     this.cursosService.delCurso(id$)
-      .subscribe ( res => {
+      .subscribe(res => {
         this.cursos = [];
         this.cursosService.getCursos()
-      .subscribe(cursos => {
-        for(const id$ in cursos) {
-          const p = cursos[id$];
-          p.id$= id$;
-          this.cursos.push(cursos[id$]);
-        }
-      })       
+          .subscribe(cursos => {
+            for (const id$ in cursos) {
+              const p = cursos[id$];
+              p.id$ = id$;
+              this.cursos.push(cursos[id$]);
+            }
+          })
       })
 
   }

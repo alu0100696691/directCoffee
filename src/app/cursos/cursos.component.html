@@ -1,40 +1,36 @@
-<div class="container">
-  <div class="row">
-    <div class="col col-md"></div>
-    <div class="col-10 col-md-10">
-      <button type="button" class="btn btn-success" routerLink="/nuevoCurso">Añadir nuevo curso</button>
-      <hr>
-      <table class="table table-striped">
-        <thead>
-          <tr>            
-            <th scope="col">Código</th>
-            <th scope="col">Curso</th> 
-            <th scope="col">Plataforma</th>
-            <th scope="col">Contenido</th>
-            <th scope="col">Horas</th>
-            <th scope="col">Comentarios</th> 
-            <th>Editar</th>  
-            <th>Eliminar</th>         
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let curso of cursos">            
-            <td>{{curso.codigo}}</td>
-            <td>{{curso.curso}}</td>
-            <td>{{curso.plataforma}}</td>
-            <td>{{curso.contenido}}</td>
-            <td>{{curso.horas}}</td>
-            <td>{{curso.comentarios}}</td>
-            <td>
-                <button type="button" class="btn btn-success" routerLink="/editarCurso/{{ curso.id$ }}">Editar</button>
-            </td>
-            <td>
-                <button type="button" class="btn btn-danger" (click)="eliminarCurso(curso.id$)">Eliminar</button>
-            </td>
-          </tr>         
-        </tbody>
-      </table>      
-    </div>
-    <div class="col col-md"></div>
+<div class="row">
+  <div class="col-12">
+    <button type="button" class="btn btn-success" routerLink="/nuevoCurso">Añadir nuevo curso</button>
+    <hr>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Código</th>
+          <th scope="col">Curso</th>
+          <th scope="col">Plataforma</th>
+          <th scope="col">Contenido</th>
+          <th scope="col">Horas</th>
+          <th scope="col">Comentarios</th>
+          <th>Editar</th>
+          <th>Eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let curso of cursos">
+          <td>{{curso.codigo}}</td>
+          <td>{{curso.curso}}</td>
+          <td>{{curso.plataforma}}</td>
+          <td>{{curso.contenido}}</td>
+          <td>{{curso.horas}}</td>
+          <td>{{curso.comentarios}}</td>
+          <td>
+            <button type="button" class="btn btn-success" routerLink="/editarCurso/{{ curso.id$ }}">Editar</button>
+          </td>
+          <td>
+            <button type="button" class="btn btn-danger" (click)="eliminarCurso(curso.id$)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
