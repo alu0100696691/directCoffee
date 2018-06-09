@@ -44,7 +44,7 @@ export class EditarCursoComponent implements OnInit {
         
       })
       this.cursoForm.reset;
-      this.router.navigate(['/cursos']);
+      this.router.navigate(['/']);
 
   }
 

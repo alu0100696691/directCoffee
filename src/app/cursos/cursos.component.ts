@@ -11,19 +11,23 @@ export class CursosComponent implements OnInit {
   cursos: any[] = [];
 
   constructor(private cursosService: CursosService) {
+    
+  }
+
+  ngOnInit() {
+    this.listaCursos();
+  }
+
+  listaCursos() {
     this.cursosService.getCursos()
       .subscribe(cursos => {
-        this.cursos= [];
+        this.cursos = [];
         for (const id$ in cursos) {
           const p = cursos[id$];
           p.id$ = id$;
           this.cursos.push(cursos[id$]);
         }
       })
-  }
-
-  ngOnInit() {
-
   }
 
   eliminarCurso(id$) {
