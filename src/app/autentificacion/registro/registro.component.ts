@@ -33,7 +33,7 @@ export class RegistroComponent implements OnInit {
   guardarRegistro() {
     this.registro = this.setearRegistro();
     this.autentificacionService.registroUsuario(this.registro);
-    this.router.navigate['/inicio'];
+    this.router.navigate['/home'];
     this.registroForm.reset;
   }
 

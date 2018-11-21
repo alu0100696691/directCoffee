@@ -3,11 +3,11 @@ import { AutentificacionService } from '../servicios/autentificacion.service';
 import { ProjectService } from '../servicios/project.service';
 
 @Component({
-  selector: 'app-inicio',
-  templateUrl: './inicio.component.html',
-  styleUrls: ['./inicio.component.css']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class InicioComponent implements OnInit {
+export class HomeComponent implements OnInit {
 
   projects: any[] = [];
   

@@ -14,22 +14,27 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { RegistroComponent } from './autentificacion/registro/registro.component';
 import { LoginComponent } from './autentificacion/login/login.component';
 import { EditarCursoComponent } from './editar-curso/editar-curso.component';
+import { ProjectService } from './servicios/project.service';
+import { ProjectsComponent } from './projects/projects/projects.component';
+import { AddproComponent } from './projects/addpro/addpro.component';
+import { EditproComponent } from './projects/editpro/editpro.component';
 
 import { CursosService } from './servicios/cursos.service';
 import { AutentificacionService } from './servicios/autentificacion.service';
 import { GuardService } from './servicios/guard.service';
+import { HomeComponent } from './home/home.component';
+
 
 
 const routes: Routes = [
-  { path: '', component: InicioComponent },
-  { path: 'inicio', component: InicioComponent },
-  { path: 'cursos', component: CursosComponent, canActivate: [GuardService] },
-  { path: 'nuevoCurso', component: NuevoCursoComponent, canActivate: [GuardService] },
-  { path: 'editarCurso/:id', component: EditarCursoComponent, canActivate: [GuardService] },
-  { path: 'usuarios', component: UsuariosComponent, canActivate: [GuardService] },
+  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'projects', component: ProjectsComponent, canActivate: [GuardService] },
+  { path: 'addpro', component: AddproComponent, canActivate: [GuardService] },
+  { path: 'editpro/:id', component: EditproComponent, canActivate: [GuardService] },  
   { path: 'registro', component: RegistroComponent },
   { path: 'login', component: LoginComponent },
-  { path: '**', component: InicioComponent }
+  { path: '**', component: HomeComponent }
 ];
 
 @NgModule({
@@ -42,7 +47,11 @@ const routes: Routes = [
     UsuariosComponent,
     RegistroComponent,
     LoginComponent,
-    EditarCursoComponent
+    EditarCursoComponent,
+    ProjectsComponent,
+    AddproComponent,
+    EditproComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +60,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     HttpModule
   ],
-  providers: [ CursosService,AutentificacionService,GuardService ],  
+  providers: [ CursosService,AutentificacionService,GuardService,ProjectService ],  
   bootstrap: [AppComponent]
 })
 export class AppModule { }

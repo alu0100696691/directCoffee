@@ -1,0 +1,22 @@
+<div class="text-center" style="margin: 40px">
+  <h3>Welcome to our application Direct Coffee</h3>
+</div>
+<div class="text-center" style="margin: 20px" *ngIf="!isAuth()">
+  <h4>Login to access</h4>
+</div>
+<div class="row" *ngIf="isAuth()">
+    <div class="col-md">       
+    </div>
+  <div class="col-md-10">
+    <ul>
+      <li *ngFor="let project of projects">
+        <a routerLink="/editpro/{{ project.id$ }}">
+          <h2>Title: {{ project.name }}</h2>
+          <p>Description: {{ project.technology }}</p>
+        </a>
+      </li>
+    </ul>  
+  </div>
+  <div class="col-md">    
+  </div> 
+</div>

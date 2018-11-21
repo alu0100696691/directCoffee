@@ -20,7 +20,7 @@ inicioSesion(userdata) {
   firebase.auth().signInWithEmailAndPassword(userdata.email, userdata.password)
     .then( response => {
       console.log(response);
-      this.router.navigate(['/inicio']);
+      this.router.navigate(['/home']);
     })
     .catch(
       error => {

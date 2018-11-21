@@ -1,40 +1,25 @@
 <div class="text-center" style="margin: 40px">
-  <h3>Bienvenido a nuestra aplicación Direct Coffee</h3>
+  <h3>Welcome to our application Direct Coffee</h3>
 </div>
 <div class="text-center" style="margin: 20px" *ngIf="!isAuth()">
-  <h4>Inicie sesión para acceder</h4>
+  <h4>Login to access</h4>
 </div>
 <div class="row" *ngIf="isAuth()">
-    <div class="col-md-3">
-        <a routerLink="/" style="text-decoration: none">
-          <div class="rectorange">
-            <i class="fa fa-address-book-o" style="font-size: 60px"></i>
-            <p style="font-size: 24px; padding-top: 15px">Registro de tiempo</p>
-          </div>
-        </a>
-      </div>
-  <div class="col-md-3">
-    <a routerLink="/cursos" style="text-decoration: none">
-      <div class="rectgreen">
-        <i class="fa fa-address-book-o" style="font-size: 60px"></i>
-        <p style="font-size: 24px; padding-top: 15px">Catalogo</p>
-      </div>
-    </a>
+    <div class="col-md">
+      <ul>
+        <li *ngFor="let project of projects">
+          <a routerLink="/editpro/{{ project.id$ }}">
+            <h2>Title: {{ project.name }}</h2>
+            <p>Description: {{ project.technology }}</p>
+          </a>
+        </li>
+      </ul>   
+    </div>
+  <div class="col-md-10">
+    
   </div>
-  <div class="col-md-3">
-    <a routerLink="/" style="text-decoration: none">
-      <div class="rectviolet">
-        <i class="fa fa-address-book-o" style="font-size: 60px"></i>
-        <p style="font-size: 24px; padding-top: 15px">Operativa a seguir</p>
-      </div>
-    </a>
+  <div class="col-md">
+    
   </div>
-  <div class="col-md-3">
-    <a routerLink="/usuarios" style="text-decoration: none">
-      <div class="rectpink">
-        <i class="fa fa-address-book-o" style="font-size: 60px"></i>
-        <p style="font-size: 24px; padding-top: 15px">Usuarios</p>
-      </div>
-    </a>
-  </div>
+ 
 </div>

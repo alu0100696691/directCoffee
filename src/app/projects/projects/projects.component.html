@@ -1,0 +1,32 @@
+<h3>List of collaborative projects</h3>
+<a class="btn btn-primary float-md-right" routerLink="/addpro">Add new project</a>
+<table class="table table-bordered table-striped" style="margin-top: 40px;">
+  <thead>
+    <tr class="filters">
+      <th>Project's name</th>
+      <th>Technology</th>
+      <th>Project manager</th>
+      <th>Description</th>    
+      <th>Edit</th> 
+      <th>Remove</th>   
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let project of projects">
+      <td>{{ project.name }}</td>
+      <td>{{ project.technology }}</td>
+      <td>{{ project.manager }}</td>
+      <td>{{ project.description }}</td>      
+      <td>
+        <button type="button" class="btn btn-success"
+                routerLink="/editpro/{{ project.id$ }}"> Edit </button>
+      </td>
+      <td>
+      <button type="button" class="btn btn-danger"
+                (click)="removeProject(project.id$)"> Remove </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+

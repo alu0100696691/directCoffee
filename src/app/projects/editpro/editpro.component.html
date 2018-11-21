@@ -1,0 +1,71 @@
+<div class="row">
+  <div class="col col-md"></div>
+  <div class="col-10 col-md-8">
+    <h2>Edit project</h2>
+    <a class="btn btn-primary float-md-right" routerLink="/projects">
+      Return to the list
+    </a>
+    <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Project's name</label>
+        <i class="fa fa-check-circle check"
+        *ngIf="projectForm.controls.name.valid"></i>
+        <i class="fa fa-excalmation-circle uncheck"
+        *ngIf="projectForm.controls.name.invalid && projectForm.controls.name.touched"></i>
+        <input type="text"
+               class="form-control"
+               id="name"
+               formControlName="name"
+               [(ngModel)]="project.name">
+      </div>
+      <div class="form-group">
+        <label for="technology">Technology</label>
+        <input type="text"
+               class="form-control"
+               id="technology"
+               formControlName="technology"
+               [(ngModel)]="project.technology">
+               <p class="alert alert-danger"
+               *ngIf="projectForm.controls.technology.invalid && projectForm.controls.technology.touched">
+               The provider field is mandatory
+              </p>
+      </div>
+      <div class="form-group">
+        <label for="manager">Project manager</label>
+        <input type="text"
+               class="form-control"
+               id="manager"
+               formControlName="manager"
+               [(ngModel)]="project.manager">
+               <p class="alert alert-danger"
+               *ngIf="projectForm.controls.manager.invalid && projectForm.controls.manager.touched">
+               The provider field is mandatory
+              </p>
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input type="text"
+               class="form-control"
+               id="description"
+               formControlName="description"
+               [(ngModel)]="project.description">
+               <p class="alert alert-danger"
+               *ngIf="projectForm.controls.description.invalid && projectForm.controls.description.touched">
+               The provider field is mandatory
+              </p>
+      </div>      
+      <button type="submit"
+              class="btn btn-primary"
+              [disabled]="!projectForm.valid">
+              Save Changes
+      </button>
+      <a class="btn btn-danger" routerLink="/projects">Cancel</a>
+      <p class="alert alert-danger" *ngIf="!projectForm.valid">
+        Please complete all required fields
+      </p>
+    </form>
+  </div>
+  <div class="col col-md"></div>
+</div>
+
+
