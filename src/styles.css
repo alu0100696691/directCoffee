@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    background-image: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,9)), url("../../directCoffee/src/assets/imgs/fondoDibujos.jpg"); 
+    background-size: cover;
+    background-position: center;
+    filter: alpha(opacity=50);
+    background-repeat: no-repeat;    
+  }
+
+ 
