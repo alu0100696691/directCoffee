@@ -43,4 +43,8 @@ logout() {
   firebase.auth().signOut();
 }
 
+getCurrentUser() {
+  return firebase.auth().currentUser;
+}
+
 }

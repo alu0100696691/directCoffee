@@ -9,14 +9,20 @@ import { ProjectService } from '../../servicios/project.service';
 export class ProjectsComponent implements OnInit {
 
   projects: any[] = [];
+  uid: any;
 
   constructor(private projectService: ProjectService) {
+    this.uid = this.projectService.getCurrentUser().uid;
+    console.log("uid:"+this.uid);
     this.projectService.getProjects()
            .subscribe(projects => {
              for (const id$ in projects) {
                const p = projects[id$];
                p.id$ = id$;
-               this.projects.push(projects[id$]);
+               console.log("project:"+projects[id$].uid);
+               if(projects[id$].uid == this.uid) {
+                this.projects.push(projects[id$]);
+               } 
              }
            })
   }

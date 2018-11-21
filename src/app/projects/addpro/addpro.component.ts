@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ProjectService } from '../../servicios/project.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
+
 @Component({
   selector: 'app-addpro',
   templateUrl: './addpro.component.html',
@@ -43,7 +44,8 @@ export class AddproComponent implements OnInit {
       name: this.projectForm.get('name').value,
       technology: this.projectForm.get('technology').value,
       manager: this.projectForm.get('manager').value,
-      description: this.projectForm.get('description').value,      
+      description: this.projectForm.get('description').value, 
+      uid: this.projectService.getCurrentUser().uid,     
     }
     return saveProject;
   }

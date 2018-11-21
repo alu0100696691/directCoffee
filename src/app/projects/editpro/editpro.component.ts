@@ -49,7 +49,8 @@ export class EditproComponent implements OnInit {
       name: this.projectForm.get('name').value,
       technology: this.projectForm.get('technology').value,
       manager: this.projectForm.get('manager').value,
-      description: this.projectForm.get('description').value,      
+      description: this.projectForm.get('description').value, 
+      uid: this.projectService.getCurrentUser().uid,     
     }
     return saveProject;
   }

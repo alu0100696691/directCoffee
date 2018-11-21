@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http, Response } from '@angular/http';
+import { AutentificacionService } from '../servicios/autentificacion.service';
 import * as Rx from 'rxjs';
 import 'rxjs/add/operator/map'
 
@@ -8,10 +9,11 @@ import 'rxjs/add/operator/map'
 })
 export class ProjectService {
 
-  projectsURL = 'https://officeprojects-10df2.firebaseio.com/projects.json';
-  proURL = 'https://officeprojects-10df2.firebaseio.com/projects';
+  projectsURL = 'https://directcoffee-e9c84.firebaseio.com/projects.json';
+  proURL = 'https://directcoffee-e9c84.firebaseio.com/projects';
 
-  constructor(private http: Http ) { }
+  constructor(private http: Http,
+    private autentificacionService: AutentificacionService ) { }
 
   postProject(project: any){
     const newpro = JSON.stringify(project);
@@ -60,5 +62,10 @@ export class ProjectService {
     return this.http.delete( url )
         .map ( res => res.json() );
   }
+
+  getCurrentUser() {
+    return this.autentificacionService.getCurrentUser();
+  }
+  
 }
 
