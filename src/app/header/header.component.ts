@@ -11,9 +11,16 @@ import { Router, ActivatedRoute} from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
+  user : any;
+
   constructor(private autentificacionService: AutentificacionService,
               private router: Router,
-              private activatedRoute: ActivatedRoute) { }
+              private activatedRoute: ActivatedRoute) {
+
+    //if(this.isAuth()) {
+      //this.user = autentificacionService.getCurrentUser().email;
+    //}
+  }
 
   ngOnInit() {
   }
